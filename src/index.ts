@@ -1,13 +1,13 @@
-import {
-  AbstractGrimpanFactory,
-  ChromeGrimpanFactory,
-  IEGrimpanFactory,
-} from "./AbstractGrimpanFactory.js";
+import { ChromeGrimpanFactory } from "./GrimpanFactory.js";
 
-function main(factory: AbstractGrimpanFactory) {
+function main() {
+  const factory = ChromeGrimpanFactory;
   const grimpan = factory.createGrimpan();
+  const grimpanMenu = factory.createGrimpanMenu(grimpan);
+  const grimpanHistory = factory.createGrimpanHistory(grimpan);
   grimpan.initialize();
-  grimpan.initializeMenu();
+  grimpanMenu.initialize();
+  grimpanHistory.initialize();
 }
 
-main(ChromeGrimpanFactory);
+main();
